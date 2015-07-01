@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         let backgroundView = UIView(frame: screenRect)
         window?.addSubview(backgroundView)
         
-        let view1 = UIView(frame: CGRect(x: 20, y: 40, width: 80, height: 30))
-        let view2 = UIView(frame: CGRect(x: 60, y: 100, width: 80, height: 30))
+        let view1 = CoolView(frame: CGRect(x: 20, y: 40, width: 80, height: 30))
+        let view2 = CoolView(frame: CGRect(x: 60, y: 100, width: 80, height: 30))
         
         backgroundView.addSubview(view1)
         backgroundView.addSubview(view2)
