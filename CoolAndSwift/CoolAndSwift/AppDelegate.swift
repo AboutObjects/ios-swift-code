@@ -24,11 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         
         backgroundView.addSubview(view1)
         backgroundView.addSubview(view2)
+        
+        view1.text = "Hello world!"
+        view2.text = "The race is to the Swift?!"
+        view1.sizeToFit()
+        view2.sizeToFit()
 
         backgroundView.backgroundColor = UIColor.brownColor()
         view1.backgroundColor = UIColor.purpleColor()
         view2.backgroundColor = UIColor.orangeColor()
-        
+    
         return true
     }
 }
