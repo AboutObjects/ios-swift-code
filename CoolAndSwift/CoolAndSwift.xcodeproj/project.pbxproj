@@ -24,6 +24,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB5645EC1B4882C600DFE999 /* Stage 0.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Stage 0.md"; sourceTree = "<group>"; };
+		AB5645ED1B4882C600DFE999 /* Stage 1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Stage 1.md"; sourceTree = "<group>"; };
+		AB5645EE1B4882C600DFE999 /* Stage 2.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Stage 2.md"; sourceTree = "<group>"; };
 		AB690E5E1B448FB500B133E9 /* CoolAndSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolAndSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB690E621B448FB500B133E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB690E631B448FB500B133E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,9 +55,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB5645EB1B4882AD00DFE999 /* Lab Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				AB5645EC1B4882C600DFE999 /* Stage 0.md */,
+				AB5645ED1B4882C600DFE999 /* Stage 1.md */,
+				AB5645EE1B4882C600DFE999 /* Stage 2.md */,
+			);
+			name = "Lab Instructions";
+			sourceTree = "<group>";
+		};
 		AB690E551B448FB500B133E9 = {
 			isa = PBXGroup;
 			children = (
+				AB5645EB1B4882AD00DFE999 /* Lab Instructions */,
 				AB690E601B448FB500B133E9 /* CoolAndSwift */,
 				AB690E761B448FB500B133E9 /* CoolAndSwiftTests */,
 				AB690E5F1B448FB500B133E9 /* Products */,
