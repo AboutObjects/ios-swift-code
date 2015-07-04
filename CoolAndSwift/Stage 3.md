@@ -9,8 +9,7 @@ Add drawing and resizing behaviors to the `CoolView` class as follows:
 2. Override `drawRect(_:)` to draw the `text` property's string value.
 
 ### Part 2
-1. Add a `Padding` enum with constants for width and height, and an `amount()`
-method that returns the raw value.
+1. Add a `TextPadding` struct with constants `Left`,`Top`, `Right`, and `Bottom`.
 2. Add a `textAttributes` property that returns a dictionary containing 
 instances of `UIFont` and `UIColor` to be used to customize text drawing.
 3. Modify `drawRect(_:)` to apply the text attributes, and to offset the origin

@@ -3,7 +3,7 @@
 //
 import UIKit
 
-// MARK: OpacityLevel enum
+// MARK: - OpacityLevel Enum
 enum OpacityLevel: CGFloat {
     case Normal = 1.0
     case Highlighted = 0.5
@@ -12,21 +12,20 @@ enum OpacityLevel: CGFloat {
     }
 }
 
-// MARK: Padding enum
-enum Padding: CGFloat {
-    case Width = 12.0
-    case Height = 8.0
-    func amount() -> CGFloat {
-        return rawValue
-    }
-    func total() -> CGFloat {
-        return rawValue * 2.0
-    }
-}
 
-// MARK: CoolView class
+// MARK: - Padding Struct
+struct TextPadding {
+    static let Left: CGFloat = 8
+    static let Top: CGFloat = 10
+    static let Right: CGFloat = 8
+    static let Bottom: CGFloat = 12
+}
+// TODO: Update Stage 3 branch with struct vs. enum.
+
+// MARK: - CoolView Class
 class CoolView: UIView
 {
+    // MARK: Properties
     var text: NSString = "Default Text"
     
     var textAttributes: [NSObject: AnyObject] = [
@@ -39,9 +38,32 @@ class CoolView: UIView
             OpacityLevel.Normal.alpha())
         }
     }
+
+    // MARK: Initializers
+    override init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        self.configureLayer()
+    }
+    
+    required init(coder aDecoder: NSCoder)
+    {
+        super.init(coder: aDecoder)
+        self.configureLayer()
+    }
+    
+    private func configureLayer()
+    {
+        layer.borderWidth = 3
+        layer.borderColor = UIColor.whiteColor().CGColor
+        layer.backgroundColor = UIColor.blueColor().CGColor
+        layer.cornerRadius = 12
+        
+        layer.masksToBounds = true
+    }
 }
 
-// MARK: UIResponder event phase method implementations
+// MARK: - UIResponder Event Phase Methods
 extension CoolView
 {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
@@ -73,21 +95,21 @@ extension CoolView
     }
 }
 
-// MARK: Drawing
+// MARK: - UIView Drawing and Resizing
 extension CoolView
 {
     override func sizeThatFits(size: CGSize) -> CGSize
     {
         var newSize = text.sizeWithAttributes(textAttributes)
-        newSize.width += Padding.Width.total()
-        newSize.height += Padding.Height.total()
+        newSize.width += TextPadding.Left + TextPadding.Right
+        newSize.height += TextPadding.Top + TextPadding.Bottom
         
         return newSize
     }
     
     override func drawRect(rect: CGRect)
     {
-        let origin = CGPoint(x: Padding.Width.amount(), y: Padding.Height.amount())
+        let origin = CGPoint(x: TextPadding.Left, y: TextPadding.Top)
         text.drawAtPoint(origin, withAttributes: textAttributes)
     }
 }

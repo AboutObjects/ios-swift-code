@@ -8,7 +8,6 @@ Add custom initialization to the `CoolView` class as follows:
 2. In `configureLayer()`, change the following properties of the root layer:
     1. Border width
     2. Border color
-    3. Background color
-    4. Corner radius
-    5. Clips to bounds
-    
+    3. Corner radius
+    4. Clips to bounds
+    5. Background color. Why does it seem that setting the layer's background color has no effect? See if you can discover how to make it work.
