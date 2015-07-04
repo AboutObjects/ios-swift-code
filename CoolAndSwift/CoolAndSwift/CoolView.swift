@@ -12,7 +12,6 @@ enum OpacityLevel: CGFloat {
     }
 }
 
-
 // MARK: - Padding Struct
 struct TextPadding {
     static let Left: CGFloat = 8
@@ -20,7 +19,6 @@ struct TextPadding {
     static let Right: CGFloat = 8
     static let Bottom: CGFloat = 12
 }
-// TODO: Update Stage 3 branch with struct vs. enum.
 
 // MARK: - CoolView Class
 class CoolView: UIView
