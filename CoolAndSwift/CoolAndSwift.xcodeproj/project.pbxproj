@@ -12,6 +12,8 @@
 		AB690E6B1B448FB500B133E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB690E6A1B448FB500B133E9 /* Images.xcassets */; };
 		AB690E7A1B448FB500B133E9 /* CoolAndSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E791B448FB500B133E9 /* CoolAndSwiftTests.swift */; };
 		AB690E841B4499BA00B133E9 /* CoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E831B4499BA00B133E9 /* CoolViewCell.swift */; };
+		ABCB07B11B49B7A000889396 /* CoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB07B01B49B7A000889396 /* CoolView.swift */; };
+		ABCB07B31B49D4C300889396 /* Array+CoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB07B21B49D4C300889396 /* Array+CoolExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		AB690E781B448FB500B133E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB690E791B448FB500B133E9 /* CoolAndSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolAndSwiftTests.swift; sourceTree = "<group>"; };
 		AB690E831B4499BA00B133E9 /* CoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CoolViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ABCB07B01B49B7A000889396 /* CoolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolView.swift; sourceTree = "<group>"; };
+		ABCB07B21B49D4C300889396 /* Array+CoolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+CoolExtensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				AB690E631B448FB500B133E9 /* AppDelegate.swift */,
+				ABCB07B01B49B7A000889396 /* CoolView.swift */,
 				AB690E831B4499BA00B133E9 /* CoolViewCell.swift */,
 				AB5645F31B49685F00DFE999 /* CoolViewCell+Animation.swift */,
+				ABCB07B21B49D4C300889396 /* Array+CoolExtensions.swift */,
 				AB690E6A1B448FB500B133E9 /* Images.xcassets */,
 				AB690E611B448FB500B133E9 /* Supporting Files */,
 			);
@@ -230,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB5645F41B49685F00DFE999 /* CoolViewCell+Animation.swift in Sources */,
+				ABCB07B31B49D4C300889396 /* Array+CoolExtensions.swift in Sources */,
+				ABCB07B11B49B7A000889396 /* CoolView.swift in Sources */,
 				AB690E641B448FB500B133E9 /* AppDelegate.swift in Sources */,
 				AB690E841B4499BA00B133E9 /* CoolViewCell.swift in Sources */,
 			);

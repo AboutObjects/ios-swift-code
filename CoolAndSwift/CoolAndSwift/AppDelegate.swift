@@ -1,4 +1,4 @@
-// Copyright (C) 2014 About Objects, Inc. All Rights Reserved.
+// Copyright (C) 2015 About Objects, Inc. All Rights Reserved.
 // See LICENSE.txt for this example's licensing information.
 //
 import UIKit
@@ -19,20 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         let backgroundView = UIView(frame: screenRect)
         window?.addSubview(backgroundView)
         
-        let view1 = CoolViewCell(frame: CGRect(x: 20, y: 40, width: 80, height: 30))
-        let view2 = CoolViewCell(frame: CGRect(x: 60, y: 100, width: 80, height: 30))
+        let coolView = CoolView(frame: CGRectInset(screenRect, 0, 40))
+        coolView.frame = CGRectOffset(coolView.frame, 0, 40)
+        backgroundView.addSubview(coolView)
         
-        backgroundView.addSubview(view1)
-        backgroundView.addSubview(view2)
+        coolView.addCell("Hello World", color: UIColor.purpleColor(),
+            origin: CGPoint(x: 20, y: 60))
+        coolView.addCell("The race is to the Swift?!", color: UIColor.orangeColor(),
+            origin: CGPoint(x: 60, y: 120))
         
-        view1.text = "Hello world!"
-        view2.text = "The race is to the Swift?!"
-        view1.sizeToFit()
-        view2.sizeToFit()
-
+        coolView.addCell("New, Improved!", color: UIColor.brownColor())
+        
         backgroundView.backgroundColor = UIColor.brownColor()
-        view1.backgroundColor = UIColor.purpleColor()
-        view2.backgroundColor = UIColor.orangeColor()
+        coolView.backgroundColor = UIColor(white: 1.0, alpha: 0.75)
     
         return true
     }

@@ -1,4 +1,4 @@
-// Copyright (C) 2014 About Objects, Inc. All Rights Reserved.
+// Copyright (C) 2015 About Objects, Inc. All Rights Reserved.
 // See LICENSE.txt for this example's licensing information.
 //
 import UIKit
@@ -36,6 +36,12 @@ class CoolViewCell: UIView
             OpacityLevel.Normal.alpha())
         }
     }
+    
+    var selected: Bool = false {
+        willSet {
+            self.highlighted = newValue
+        }
+    }
 
     // MARK: Initializers
     override init(frame: CGRect)
@@ -48,6 +54,16 @@ class CoolViewCell: UIView
     {
         super.init(coder: aDecoder)
         self.configure()
+    }
+    
+    convenience init(text: NSString, color: UIColor = UIColor.blueColor())
+    {
+        // NOTE: Important to use `self` rather than `super` here.
+        self.init(frame: CGRectZero)
+        
+        self.backgroundColor = color
+        self.text = text
+        self.sizeToFit()
     }
 }
 
@@ -64,7 +80,6 @@ extension CoolViewCell
     {
         layer.borderWidth = 3
         layer.borderColor = UIColor.whiteColor().CGColor
-        layer.backgroundColor = UIColor.blueColor().CGColor
         layer.cornerRadius = 12
         
         layer.masksToBounds = true
@@ -76,8 +91,10 @@ extension CoolViewCell
 {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
     {
-        highlighted = true
+        selected = true
         superview?.bringSubviewToFront(self)
+        
+        super.touchesBegan(touches, withEvent: event)
     }
     
     override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent)
@@ -90,16 +107,18 @@ extension CoolViewCell
                 dx: currLocation.x - prevLocation.x,
                 dy: currLocation.y - prevLocation.y)
         }
+        
+        super.touchesMoved(touches, withEvent: event)
     }
     
     override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)
     {
-        highlighted = false
+        super.touchesEnded(touches, withEvent: event)
     }
     
     override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!)
     {
-        highlighted = false
+        super.touchesCancelled(touches, withEvent: event)
     }
 }
 
