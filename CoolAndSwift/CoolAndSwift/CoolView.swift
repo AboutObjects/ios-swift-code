@@ -41,13 +41,23 @@ class CoolView: UIView
     override init(frame: CGRect)
     {
         super.init(frame: frame)
-        self.configureLayer()
+        self.configure()
     }
     
     required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
+        self.configure()
+    }
+}
+
+// MARK: - UIView and CALayer Configuration
+extension CoolView
+{
+    private func configure()
+    {
         self.configureLayer()
+        self.configureGestureRecognizers()
     }
     
     private func configureLayer()

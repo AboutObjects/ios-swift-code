@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB5645F41B49685F00DFE999 /* CoolView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5645F31B49685F00DFE999 /* CoolView+Animation.swift */; };
 		AB690E641B448FB500B133E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E631B448FB500B133E9 /* AppDelegate.swift */; };
 		AB690E6B1B448FB500B133E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB690E6A1B448FB500B133E9 /* Images.xcassets */; };
 		AB690E7A1B448FB500B133E9 /* CoolAndSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E791B448FB500B133E9 /* CoolAndSwiftTests.swift */; };
@@ -29,6 +30,8 @@
 		AB5645DC1B486B3B00DFE999 /* Stage 2.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Stage 2.md"; sourceTree = "<group>"; };
 		AB5645DD1B486B3B00DFE999 /* Stage 3.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Stage 3.md"; sourceTree = "<group>"; };
 		AB5645E21B486DF200DFE999 /* Stage 4.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Stage 4.md"; sourceTree = "<group>"; };
+		AB5645F21B48875B00DFE999 /* Stage 5.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Stage 5.md"; sourceTree = "<group>"; };
+		AB5645F31B49685F00DFE999 /* CoolView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoolView+Animation.swift"; sourceTree = "<group>"; };
 		AB690E5E1B448FB500B133E9 /* CoolAndSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolAndSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB690E621B448FB500B133E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB690E631B448FB500B133E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 				AB5645DC1B486B3B00DFE999 /* Stage 2.md */,
 				AB5645DD1B486B3B00DFE999 /* Stage 3.md */,
 				AB5645E21B486DF200DFE999 /* Stage 4.md */,
+				AB5645F21B48875B00DFE999 /* Stage 5.md */,
 			);
 			name = "Lab Instructions";
 			sourceTree = "<group>";
@@ -93,6 +97,7 @@
 			children = (
 				AB690E631B448FB500B133E9 /* AppDelegate.swift */,
 				AB690E831B4499BA00B133E9 /* CoolView.swift */,
+				AB5645F31B49685F00DFE999 /* CoolView+Animation.swift */,
 				AB690E6A1B448FB500B133E9 /* Images.xcassets */,
 				AB690E611B448FB500B133E9 /* Supporting Files */,
 			);
@@ -222,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB5645F41B49685F00DFE999 /* CoolView+Animation.swift in Sources */,
 				AB690E641B448FB500B133E9 /* AppDelegate.swift in Sources */,
 				AB690E841B4499BA00B133E9 /* CoolView.swift in Sources */,
 			);
