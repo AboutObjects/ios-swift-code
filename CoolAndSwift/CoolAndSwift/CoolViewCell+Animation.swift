@@ -6,7 +6,7 @@ import UIKit
 let BounceSize = CGSize(width: 120, height: 240)
 
 // MARK: - Additional UIView Configuration
-extension CoolView
+extension CoolViewCell
 {
     /// Adds a double-tap gesture recognizer that triggers calls to `performAnimation(_:)`
     func configureGestureRecognizers()
@@ -20,7 +20,7 @@ extension CoolView
 }
 
 // MARK: - UIView Animation
-extension CoolView
+extension CoolViewCell
 {
     func performAnimation(gestureRecognizer: UISwipeGestureRecognizer)
     {

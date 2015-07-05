@@ -20,8 +20,8 @@ struct TextPadding {
     static let Bottom: CGFloat = 12
 }
 
-// MARK: - CoolView Class
-class CoolView: UIView
+// MARK: - CoolViewCell Class
+class CoolViewCell: UIView
 {
     // MARK: Properties
     var text: NSString = "Default Text"
@@ -52,7 +52,7 @@ class CoolView: UIView
 }
 
 // MARK: - UIView and CALayer Configuration
-extension CoolView
+extension CoolViewCell
 {
     private func configure()
     {
@@ -72,7 +72,7 @@ extension CoolView
 }
 
 // MARK: - UIResponder Event Phase Methods
-extension CoolView
+extension CoolViewCell
 {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
     {
@@ -104,7 +104,7 @@ extension CoolView
 }
 
 // MARK: - UIView Drawing and Resizing
-extension CoolView
+extension CoolViewCell
 {
     override func sizeThatFits(size: CGSize) -> CGSize
     {
