@@ -3,9 +3,20 @@
 //
 import UIKit
 
+// MARK: - CoolViewDelegate Protocol
+@objc protocol CoolViewDelegate : NSObjectProtocol
+{
+    // NOTE: `optional` protocol methods only available for objc types.
+    optional func coolView(coolView: CoolView, didSelectRowAtIndex index: Int)
+    optional func coolView(coolView: CoolView, didDeselectRowAtIndex index: Int)
+}
+
 // MARK: - CoolView class
 class CoolView: UIView
 {
+    // NOTE: Declared `weak` to avoid potential retain cycles.
+    @IBOutlet weak var delegate: CoolViewDelegate?
+    
     var cells = [CoolViewCell]()
     var previousCellFrame: CGRect = CGRectZero
     var selectedCell: CoolViewCell? = nil {
@@ -25,11 +36,83 @@ class CoolView: UIView
         cells.append(cell)
     }
     
+    func removeCell(cell: CoolViewCell)
+    {
+        if let index = indexOfCell(cell) {
+            cells[index].removeFromSuperview()
+            cells.removeAtIndex(index)
+            
+            delegate?.coolView?(self, didDeselectRowAtIndex: index)
+        }
+    }
+}
+
+extension CoolView
+{
+    override func prepareForInterfaceBuilder()
+    {
+        super.prepareForInterfaceBuilder()
+    }
+}
+
+// MARK: Handling Selection
+extension CoolView
+{
+    func indexOfCell(cell: CoolViewCell) -> Int?
+    {
+        return find(cells, cell)
+    }
+    
+    func indexOfSelectedCell() -> Int?
+    {
+        if let cell = selectedCell {
+            return indexOfCell(cell)
+        }
+        return nil
+    }
+
+    func cellAtIndex(index: Int) -> CoolViewCell
+    {
+        return cells[index]
+    }
+    
+    func deselectAllCells()
+    {
+        cells.perform { (cell: CoolViewCell) in
+            cell.selected = false
+        }
+    }
+    
+    /// If `cell` is already selected, deselects it, otherwise, selects it.
+    /// Selection is mutually exclusive; `CoolView` doesn't currently support
+    /// multiple selection.
+    ///
+    /// Sends the following delegate notification messages, if the delegate
+    /// implements them:
+    ///
+    /// `coolView(didSelectCellAtIndex:)`
+    ///     Sent immediately after selecting the provided cell
+    ///
+    ///
+    /// `coolView(didDeselectCellAtIndex:)`
+    ///     Sent immediately after deselecting a cell
+    ///
+    /// :param: cell The cell to select (or deselect)
     func handleSelection(#cell: CoolViewCell)
     {
-        cells.perform { (cell: CoolViewCell) in cell.selected = false }
+        deselectAllCells()
         
-        selectedCell = cell === selectedCell ? nil : cell
+        
+        if cell === selectedCell {
+            let index = indexOfSelectedCell()
+            selectedCell = nil
+            if index != nil {
+                delegate?.coolView?(self, didDeselectRowAtIndex: index!)
+            }
+        } else {
+            selectedCell = cell
+            delegate?.coolView?(self, didSelectRowAtIndex: indexOfSelectedCell()!)
+        }
     }
 }
 

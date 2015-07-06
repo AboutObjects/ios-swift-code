@@ -16,3 +16,7 @@ _TODO: Complete the instructions._
 Provide nib name in initialization code.
 
 
+### CoolViewCell
+
+NOTE: Changed type of `text` property from `NSString` to `String`. Change needs
+to be reflected in previous versions.

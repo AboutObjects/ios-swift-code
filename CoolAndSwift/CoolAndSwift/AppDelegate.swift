@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         window?.backgroundColor = UIColor.lightGrayColor()
         window?.makeKeyAndVisible()
         
-        controller = CoolViewController(nibName: "ManageCoolViews", bundle: nil)
+//        controller = CoolViewController(nibName: "ManageCoolViews", bundle: nil)
+        controller = CoolViewController(nibName: "EditCoolViews", bundle: nil)
         if let backgroundView = controller?.view {
             window?.rootViewController = controller
         }

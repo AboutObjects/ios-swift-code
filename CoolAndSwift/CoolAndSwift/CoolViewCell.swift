@@ -24,7 +24,9 @@ struct TextPadding {
 class CoolViewCell: UIView
 {
     // MARK: Properties
-    var text: NSString = "Default Text"
+    var text: String = "Default Text" {
+        didSet { setNeedsDisplay(); sizeToFit() }
+    }
     
     var textAttributes: [NSObject: AnyObject] = [
         NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
@@ -56,7 +58,7 @@ class CoolViewCell: UIView
         self.configure()
     }
     
-    convenience init(text: NSString, color: UIColor = UIColor.blueColor())
+    convenience init(text: String, color: UIColor = UIColor.blueColor())
     {
         // NOTE: Important to use `self` rather than `super` here.
         self.init(frame: CGRectZero)
