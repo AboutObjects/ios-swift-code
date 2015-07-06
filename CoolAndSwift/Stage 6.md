@@ -2,7 +2,7 @@
 
 ## Stage 6: Responder Chain
 
-Add a view controller and controls for creating and editing cool views.
+Add a subclass of `UIView` to manage cool view selection.
 
 1. Rename the `CoolView` class `CoolViewCell`.
 2. Add a new subclass of `UIView` named `CoolView` that will be responsible for
