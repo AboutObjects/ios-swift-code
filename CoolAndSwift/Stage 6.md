@@ -1,6 +1,6 @@
 # CoolAndSwift Lab Exercise
 
-## Stage 6: View Controllers and Controls
+## Stage 6: Responder Chain
 
 Add a view controller and controls for creating and editing cool views.
 
