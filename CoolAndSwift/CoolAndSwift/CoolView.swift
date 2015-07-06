@@ -14,7 +14,7 @@ class CoolView: UIView
     
     func addCell(text: String, color: UIColor? = nil, origin: CGPoint? = CGPointZero)
     {
-        var cell = CoolViewCell(text: text)
+        let cell = CoolViewCell(text: text)
         
         if let bgColor = color { cell.backgroundColor = bgColor }
         if let position = origin {
