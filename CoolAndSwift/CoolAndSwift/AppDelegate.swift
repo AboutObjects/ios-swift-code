@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate
         window?.backgroundColor = UIColor.lightGrayColor()
         window?.makeKeyAndVisible()
         
-        controller = CoolViewController(nibName: nil, bundle: nil)
+        controller = CoolViewController(nibName: "ManageCoolViews", bundle: nil)
         if let backgroundView = controller?.view {
-            window?.addSubview(backgroundView)
+            window?.rootViewController = controller
         }
-    
+        
         return true
     }
 }

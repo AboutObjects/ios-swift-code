@@ -23,7 +23,6 @@ class CoolView: UIView
         
         addSubview(cell)
         cells.append(cell)
-        handleSelection(cell: cell)
     }
     
     func handleSelection(#cell: CoolViewCell)
