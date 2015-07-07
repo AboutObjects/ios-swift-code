@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="agj-oV-ZoV">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Cool View Controller-->
+        <scene sceneID="fyR-I9-2Gh">
+            <objects>
+                <viewController id="f6e-5m-IDD" customClass="CoolViewController" customModule="CoolAndSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Dz-tP-oqs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="9nM-U7-AAs" customClass="CoolView" customModule="CoolAndSwift" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="TfM-7t-96j">
+                        <barButtonItem key="leftBarButtonItem" enabled="NO" systemItem="edit" id="Mnr-hf-gaG">
+                            <connections>
+                                <action selector="editSelectedCell" destination="f6e-5m-IDD" id="OCX-eq-v6c"/>
+                                <segue destination="yj9-ar-6fQ" kind="modal" identifier="Edit" id="U0q-tb-62Z"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9Aa-Cm-fGa">
+                            <connections>
+                                <segue destination="Exg-GQ-DsL" kind="modal" identifier="Add" id="S1c-f6-KuX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="coolView" destination="9nM-U7-AAs" id="VgR-gg-uoh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f65-Js-dIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="521" y="725"/>
+        </scene>
+        <!--Edit Cool View-->
+        <scene sceneID="0kI-ZU-ZtZ">
+            <objects>
+                <viewController id="HbN-4m-eYX" customClass="CoolViewCellController" customModule="CoolAndSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UAd-eM-IJH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CoolView text" minimumFontSize="17" id="zgR-AR-1gX">
+                                <rect key="frame" x="61" y="117" width="243" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9t7-QQ-rqR">
+                                <rect key="frame" x="16" y="126" width="32" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.25098040700000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" id="cGj-Qf-iPl">
+                                <rect key="frame" x="0.0" y="155" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HbN-4m-eYX" id="Wi1-jw-JO4"/>
+                                    <outlet property="delegate" destination="HbN-4m-eYX" id="MSO-dq-iYP"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="UKQ-JX-Ew5">
+                                <rect key="frame" x="62" y="325" width="196" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Delete this Cool View">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CWU-mB-4Gj" kind="unwind" identifier="Delete" unwindAction="deleteSelectedCell:" id="iga-Rz-EYy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.8901960784313725" green="0.85098039215686272" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Cool View" id="AuY-9Y-8BO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kiY-uM-ahy">
+                            <connections>
+                                <segue destination="CWU-mB-4Gj" kind="unwind" identifier="Cancel" unwindAction="cancelEditing:" id="zzf-1L-Ym9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Zeq-QA-vAY">
+                            <connections>
+                                <segue destination="CWU-mB-4Gj" kind="unwind" identifier="Done" unwindAction="doneEditing:" id="LCL-bH-TzW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="cGj-Qf-iPl" id="Ocf-Dm-ovH"/>
+                        <outlet property="textField" destination="zgR-AR-1gX" id="Wde-vh-OEE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OmW-06-IQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CWU-mB-4Gj" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1445" y="283"/>
+        </scene>
+        <!--Add Cool View-->
+        <scene sceneID="YTQ-cr-EHP">
+            <objects>
+                <viewController id="h1w-NG-m7Y" customClass="CoolViewCellController" customModule="CoolAndSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2ox-cq-iYJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CoolView text" minimumFontSize="17" id="J3h-P5-UBL">
+                                <rect key="frame" x="61" y="105" width="243" height="30"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M4Y-5q-Y4T">
+                                <rect key="frame" x="16" y="114" width="32" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" id="6h6-xp-toM">
+                                <rect key="frame" x="0.0" y="143" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="h1w-NG-m7Y" id="5eZ-ui-Tmm"/>
+                                    <outlet property="delegate" destination="h1w-NG-m7Y" id="lBJ-aA-aeL"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.8784313725490196" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Cool View" id="xrF-j8-dlX">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="f3T-mQ-N76">
+                            <connections>
+                                <segue destination="A3T-cH-Lf6" kind="unwind" identifier="Cancel" unwindAction="cancelAdding:" id="wUh-6w-sum"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4wC-6i-WWw">
+                            <connections>
+                                <segue destination="A3T-cH-Lf6" kind="unwind" identifier="Done" unwindAction="doneEditing:" id="jyT-Eh-L70"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pickerView" destination="6h6-xp-toM" id="hxz-f7-eRn"/>
+                        <outlet property="textField" destination="J3h-P5-UBL" id="t59-Vw-XM9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NtS-s0-W4h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="A3T-cH-Lf6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1445" y="937"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UjH-Ja-P5d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="agj-oV-ZoV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8To-KG-cbL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="f6e-5m-IDD" kind="relationship" relationship="rootViewController" id="cfJ-eP-jYN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lU9-pK-5u5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="725"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WeL-Gz-bji">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Exg-GQ-DsL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8RK-TI-MCj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h1w-NG-m7Y" kind="relationship" relationship="rootViewController" id="d5q-MM-KZH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ul9-Oq-WDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="937"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="c0Q-cy-iOv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yj9-ar-6fQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="hNW-DW-5H5"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8kU-NM-YJX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HbN-4m-eYX" kind="relationship" relationship="rootViewController" id="r7Q-Le-Bbb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bdp-ad-obG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="283"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+    <color key="tintColor" red="0.50196081399917603" green="0.25098040699958801" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+</document>

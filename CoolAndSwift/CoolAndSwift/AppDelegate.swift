@@ -12,17 +12,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        window?.backgroundColor = UIColor.lightGrayColor()
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        window?.backgroundColor = UIColor.lightGrayColor()
+//        window?.makeKeyAndVisible()
+//        
+////        controller = CoolViewController(nibName: "ManageCoolViews", bundle: nil)
+//        controller = CoolViewController(nibName: "EditCoolViews", bundle: nil)
+//        if let backgroundView = controller?.view {
+//            window?.rootViewController = controller
+//        }
         
-//        controller = CoolViewController(nibName: "ManageCoolViews", bundle: nil)
-        controller = CoolViewController(nibName: "EditCoolViews", bundle: nil)
-        if let backgroundView = controller?.view {
-            window?.rootViewController = controller
-        }
+        configureAppearance()
         
         return true
     }
 }
 
+extension AppDelegate
+{
+    private func configureAppearance()
+    {
+        
+    }
+}

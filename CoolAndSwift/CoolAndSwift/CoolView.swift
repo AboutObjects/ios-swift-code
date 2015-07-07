@@ -23,7 +23,7 @@ class CoolView: UIView
         willSet { newValue?.selected = true }
     }
     
-    func addCell(text: String, color: UIColor? = nil, origin: CGPoint? = CGPointZero)
+    func addCell(text: String, color: UIColor? = nil, origin: CGPoint? = CGPointZero) -> CoolViewCell
     {
         let cell = CoolViewCell(text: text)
         
@@ -34,6 +34,8 @@ class CoolView: UIView
         
         addSubview(cell)
         cells.append(cell)
+        
+        return cell
     }
     
     func removeCell(cell: CoolViewCell)
@@ -82,6 +84,8 @@ extension CoolView
             cell.selected = false
         }
     }
+    
+    // TODO: Should the delegate notifications be sent by the `selected` property?
     
     /// If `cell` is already selected, deselects it, otherwise, selects it.
     /// Selection is mutually exclusive; `CoolView` doesn't currently support
