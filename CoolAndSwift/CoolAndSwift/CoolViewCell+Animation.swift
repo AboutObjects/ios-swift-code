@@ -40,8 +40,7 @@ extension CoolViewCell
                 let translation = CGAffineTransformMakeTranslation(size.width, size.height)
                 self.transform = CGAffineTransformRotate(translation, CGFloat(M_PI_2))
             },
-            completion: {
-                (finished: Bool) in
+            completion: { _ in
                 self.animateFinalBounce(duration, size: size)
             }
         )
@@ -68,7 +67,7 @@ extension CoolViewCell
                 let translation = CGAffineTransformMakeTranslation(size.width, size.height)
                 self.transform = CGAffineTransformRotate(translation, CGFloat(M_PI_2))
             },
-            completion: { (finished: Bool) in
+            completion: { _ in
                 self.animateFinalBounce(duration, size: size)
         })
     }

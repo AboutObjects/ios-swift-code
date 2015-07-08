@@ -40,10 +40,10 @@ extension CoolViewController
         if let selectedCell = coolView.selectedCell
         {
             let cancel = UIAlertAction(title: "Cancel", style: .Cancel) {
-                (_) in
+                _ in
             }
             let delete = UIAlertAction(title: "Okay", style: .Destructive) {
-                (_) in self.coolView.removeCell(selectedCell)
+                _ in self.coolView.removeCell(selectedCell)
             }
             
             let alert = UIAlertController(title: "Delete", message: nil, // "For realz?",

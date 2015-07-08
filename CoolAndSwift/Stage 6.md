@@ -63,7 +63,7 @@ func addCell(text: String, color: UIColor? = nil, origin: CGPoint? = CGPointZero
 ```swift
     func handleSelection(#cell: CoolViewCell)
     {
-        cells.perform { (cell: CoolViewCell) in cell.selected = false }
+        cells.perform { cell in cell.selected = false }
         
         selectedCell = cell === selectedCell ? nil : cell
     }

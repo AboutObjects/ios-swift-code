@@ -29,7 +29,7 @@ func colorAtIndex(index: Int) -> UIColor?
 
 func indexOfColor(color: UIColor) -> Int?
 {
-    for (key, value) in colorChoices {
+    for key, value in colorChoices {
         if value == color {
             return find(colorTitles, key)
         }

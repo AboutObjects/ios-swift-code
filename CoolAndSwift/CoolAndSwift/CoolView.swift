@@ -80,7 +80,7 @@ extension CoolView
     
     func deselectAllCells()
     {
-        cells.perform { (cell: CoolViewCell) in
+        cells.perform { cell in
             cell.selected = false
         }
     }
