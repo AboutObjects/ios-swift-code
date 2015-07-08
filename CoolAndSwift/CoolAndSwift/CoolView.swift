@@ -85,7 +85,7 @@ extension CoolView
         }
     }
     
-    // TODO: Should the delegate notifications be sent by the `selected` property?
+    // TODO: Should delegate notifications be sent by the `selected` property?
     
     /// If `cell` is already selected, deselects it, otherwise, selects it.
     /// Selection is mutually exclusive; `CoolView` doesn't currently support
@@ -105,7 +105,6 @@ extension CoolView
     func handleSelection(#cell: CoolViewCell)
     {
         deselectAllCells()
-        
         
         if cell === selectedCell {
             let index = indexOfSelectedCell()
@@ -130,9 +129,16 @@ extension CoolView
         {
             handleSelection(cell: cell)
         }
+        super.touchesBegan(touches, withEvent: event)
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) { }
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) { }
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) { }
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesMoved(touches, withEvent: event)
+    }
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+        super.touchesEnded(touches, withEvent: event)
+    }
+    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
+        super.touchesCancelled(touches, withEvent: event)
+    }
 }

@@ -7,31 +7,39 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
     var window: UIWindow?
-    var controller: CoolViewController?
-
+    
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
-//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        window?.backgroundColor = UIColor.lightGrayColor()
-//        window?.makeKeyAndVisible()
-//        
-////        controller = CoolViewController(nibName: "ManageCoolViews", bundle: nil)
-//        controller = CoolViewController(nibName: "EditCoolViews", bundle: nil)
-//        if let backgroundView = controller?.view {
-//            window?.rootViewController = controller
-//        }
-        
         configureAppearance()
         
         return true
     }
 }
 
+// MARK: UIAppearance Configuration
 extension AppDelegate
 {
     private func configureAppearance()
     {
+        UITextField.appearance().keyboardAppearance = .Dark
         
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "Party LET", size: 36)!,
+            NSForegroundColorAttributeName: UIColor.cas_NavBarTextColor()
+        ]
+    }
+}
+
+// MARK: UIColor
+extension UIColor
+{
+    // NOTE: Objective-C doesn't have formal namespaces, so you must prefix
+    // any methods you add to third-party Objective-C framework classes to avoid
+    // potential name collisions. (Here, we're using 'cas' as an informal
+    // namespace for the CoolAndSwift project.)
+    
+    static func cas_NavBarTextColor() -> UIColor {
+        return UIColor(red: 0.7, green: 0.3, blue: 0.0, alpha: 1.0)
     }
 }

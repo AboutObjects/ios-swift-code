@@ -4,10 +4,10 @@
 import UIKit
 
 let colorChoices = [
-    "Blue": UIColor.blueColor(),
-    "Brown": UIColor.brownColor(),
-    "Gray": UIColor.grayColor(),
-    "Green": UIColor.greenColor(),
+    "Blue":   UIColor.blueColor(),
+    "Brown":  UIColor.brownColor(),
+    "Gray":   UIColor.grayColor(),
+    "Green":  UIColor.greenColor(),
     "Orange": UIColor.orangeColor(),
     "Purple": UIColor.purpleColor()
 ]
@@ -22,6 +22,7 @@ func indexOfTitle(title: String) -> Int?
 func colorAtIndex(index: Int) -> UIColor?
 {
     assert(index > -1 && index < colorChoices.count, "Invalid index: \(index)")
+    
     let title = colorTitles[index]
     return colorChoices[title]
 }

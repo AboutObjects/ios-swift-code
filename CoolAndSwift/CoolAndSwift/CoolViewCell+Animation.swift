@@ -24,10 +24,10 @@ extension CoolViewCell
 {
     func performAnimation(gestureRecognizer: UISwipeGestureRecognizer)
     {
-        animateBounce(1.0, size: BounceSize, configuration: {
+        animateBounce(1.0, size: BounceSize) {
             UIView.setAnimationRepeatCount(3.5)
             UIView.setAnimationRepeatAutoreverses(true)
-        })
+        }
         
         // animateSpringyBounce(1.0, size: AnimatedMoveSize)
     }

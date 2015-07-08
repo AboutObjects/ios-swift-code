@@ -14,10 +14,10 @@ enum OpacityLevel: CGFloat {
 
 // MARK: - Padding Struct
 struct TextPadding {
-    static let Left: CGFloat = 8
-    static let Top: CGFloat = 10
-    static let Right: CGFloat = 8
-    static let Bottom: CGFloat = 12
+    static let Left: CGFloat = 12
+    static let Top: CGFloat = 8
+    static let Right: CGFloat = 12
+    static let Bottom: CGFloat = 10
 }
 
 // MARK: - CoolViewCell Class

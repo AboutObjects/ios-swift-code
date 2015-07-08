@@ -30,19 +30,30 @@ class CoolViewController: UIViewController, UITextFieldDelegate, CoolViewDelegat
 extension CoolViewController
 {
     // MARK: Unwind Segues
-    @IBAction func doneEditing(segue: UIStoryboardSegue) {
-        // TODO: Save
-    }
-    @IBAction func doneAdding(segue: UIStoryboardSegue) {
-        // TODO: Save
-    }
+    @IBAction func doneEditing(segue: UIStoryboardSegue) { }
+    @IBAction func doneAdding(segue: UIStoryboardSegue) { }
     @IBAction func cancelEditing(segue: UIStoryboardSegue) { }
     @IBAction func cancelAdding(segue: UIStoryboardSegue) { }
-    
+
     @IBAction func deleteSelectedCell(segue: UIStoryboardSegue)
     {
-        if let selectedCell = coolView.selectedCell {
-            coolView.removeCell(selectedCell)
+        if let selectedCell = coolView.selectedCell
+        {
+            let cancel = UIAlertAction(title: "Cancel", style: .Cancel) {
+                (_) in
+            }
+            let delete = UIAlertAction(title: "Okay", style: .Destructive) {
+                (_) in self.coolView.removeCell(selectedCell)
+            }
+            
+            let alert = UIAlertController(title: "Delete", message: nil, // "For realz?",
+                preferredStyle: .Alert)
+            alert.addAction(delete)
+            alert.addAction(cancel)
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock {
+                self.presentViewController(alert, animated: true) { }
+            }
         }
     }
     
@@ -91,3 +102,26 @@ extension CoolViewController
         navigationItem.leftBarButtonItem?.enabled = true
     }
 }
+
+// MARK: UIResponder Methods
+extension CoolViewController
+{
+    // Deselects the currently selected cell when the user taps anywhere
+    // on the cool view's background.
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    {
+        if let touch: UITouch = touches.first as? UITouch
+        {
+            if !(touch.view is CoolViewCell) {
+                if let cell = coolView.selectedCell {
+                    coolView.handleSelection(cell: cell)
+                }
+            }
+        }
+    }
+    
+    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) { }
+    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) { }
+    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) { }
+}
+

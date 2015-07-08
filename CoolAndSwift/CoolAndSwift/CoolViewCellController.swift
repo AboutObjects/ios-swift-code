@@ -28,8 +28,8 @@ class CoolViewCellController: UIViewController, UIPickerViewDataSource, UIPicker
     {
         if let identifier = segue.identifier where identifier == "Done"
         {
-            if let newCell = createCellOnCompletion {
-                cell = newCell()
+            if let create = createCellOnCompletion {
+                cell = create()
             }
             
             if let color = colorAtIndex(pickerView.selectedRowInComponent(0)) {

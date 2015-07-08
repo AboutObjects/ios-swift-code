@@ -9,17 +9,16 @@
 /* Begin PBXBuildFile section */
 		AB0D16511B4C85E400C9C913 /* ColorChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D16501B4C85E400C9C913 /* ColorChoices.swift */; };
 		AB0D16531B4C8FD500C9C913 /* CoolViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D16521B4C8FD500C9C913 /* CoolViewCellController.swift */; };
+		AB0D16541B4C95B900C9C913 /* ColorChoices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0D16501B4C85E400C9C913 /* ColorChoices.swift */; };
 		AB1F14DA1B4B413900581B03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB1F14D91B4B413900581B03 /* Main.storyboard */; };
 		AB5645F41B49685F00DFE999 /* CoolViewCell+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5645F31B49685F00DFE999 /* CoolViewCell+Animation.swift */; };
 		AB690E641B448FB500B133E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E631B448FB500B133E9 /* AppDelegate.swift */; };
 		AB690E6B1B448FB500B133E9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB690E6A1B448FB500B133E9 /* Images.xcassets */; };
 		AB690E7A1B448FB500B133E9 /* CoolAndSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E791B448FB500B133E9 /* CoolAndSwiftTests.swift */; };
 		AB690E841B4499BA00B133E9 /* CoolViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB690E831B4499BA00B133E9 /* CoolViewCell.swift */; };
-		ABC5227D1B4AFEA100E51089 /* EditCoolViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABC5227C1B4AFEA100E51089 /* EditCoolViews.xib */; };
 		ABCB07B11B49B7A000889396 /* CoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB07B01B49B7A000889396 /* CoolView.swift */; };
 		ABCB07B31B49D4C300889396 /* Array+CoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB07B21B49D4C300889396 /* Array+CoolExtensions.swift */; };
 		ABCB07B91B4A05AC00889396 /* CoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB07B81B4A05AC00889396 /* CoolViewController.swift */; };
-		ABCB07BB1B4AB64F00889396 /* ManageCoolViews.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABCB07BA1B4AB64F00889396 /* ManageCoolViews.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,12 +52,10 @@
 		AB690E781B448FB500B133E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB690E791B448FB500B133E9 /* CoolAndSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolAndSwiftTests.swift; sourceTree = "<group>"; };
 		AB690E831B4499BA00B133E9 /* CoolViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CoolViewCell.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		ABC5227C1B4AFEA100E51089 /* EditCoolViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCoolViews.xib; sourceTree = "<group>"; };
 		ABCB07B01B49B7A000889396 /* CoolView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolView.swift; sourceTree = "<group>"; };
 		ABCB07B21B49D4C300889396 /* Array+CoolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+CoolExtensions.swift"; sourceTree = "<group>"; };
 		ABCB07B61B4A047100889396 /* Stage 7.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "Stage 7.md"; sourceTree = "<group>"; };
 		ABCB07B81B4A05AC00889396 /* CoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoolViewController.swift; sourceTree = "<group>"; };
-		ABCB07BA1B4AB64F00889396 /* ManageCoolViews.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManageCoolViews.xib; sourceTree = "<group>"; };
 		ABCB07BC1B4AE17600889396 /* Stage 8.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Stage 8.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,8 +124,6 @@
 				AB5645F31B49685F00DFE999 /* CoolViewCell+Animation.swift */,
 				ABCB07B21B49D4C300889396 /* Array+CoolExtensions.swift */,
 				AB0D16501B4C85E400C9C913 /* ColorChoices.swift */,
-				ABCB07BA1B4AB64F00889396 /* ManageCoolViews.xib */,
-				ABC5227C1B4AFEA100E51089 /* EditCoolViews.xib */,
 				AB1F14D91B4B413900581B03 /* Main.storyboard */,
 				AB690E6A1B448FB500B133E9 /* Images.xcassets */,
 				AB690E611B448FB500B133E9 /* Supporting Files */,
@@ -241,8 +236,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABCB07BB1B4AB64F00889396 /* ManageCoolViews.xib in Resources */,
-				ABC5227D1B4AFEA100E51089 /* EditCoolViews.xib in Resources */,
 				AB690E6B1B448FB500B133E9 /* Images.xcassets in Resources */,
 				AB1F14DA1B4B413900581B03 /* Main.storyboard in Resources */,
 			);
@@ -277,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB0D16541B4C95B900C9C913 /* ColorChoices.swift in Sources */,
 				AB690E7A1B448FB500B133E9 /* CoolAndSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
