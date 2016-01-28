@@ -34,8 +34,10 @@ class CoolViewCell: UIView
     ]
     
     var highlighted: Bool = false {
-        willSet { alpha = (newValue ? OpacityLevel.Highlighted.alpha() :
-            OpacityLevel.Normal.alpha())
+        willSet {
+            alpha = (newValue ?
+                OpacityLevel.Highlighted.alpha() :
+                OpacityLevel.Normal.alpha())
         }
     }
     
@@ -52,7 +54,7 @@ class CoolViewCell: UIView
         self.configure()
     }
     
-    required init(coder aDecoder: NSCoder)
+    required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
         self.configure()
@@ -91,7 +93,7 @@ extension CoolViewCell
 // MARK: - UIResponder Event Phase Methods
 extension CoolViewCell
 {
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         selected = true
         superview?.bringSubviewToFront(self)
@@ -99,7 +101,7 @@ extension CoolViewCell
         super.touchesBegan(touches, withEvent: event)
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         if let touch = touches.first as? UITouch {
             let currLocation = touch.locationInView(self)
@@ -113,12 +115,12 @@ extension CoolViewCell
         super.touchesMoved(touches, withEvent: event)
     }
     
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         super.touchesEnded(touches, withEvent: event)
     }
     
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!)
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
     {
         super.touchesCancelled(touches, withEvent: event)
     }

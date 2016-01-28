@@ -76,7 +76,7 @@ extension CoolViewController
                     editController.cell = cell
                 }
             default:
-                println("Unmatched segue identifier \(segue.identifier)")
+                print("Unmatched segue identifier \(segue.identifier)")
             }
         }
     }
@@ -103,12 +103,12 @@ extension CoolViewController
     }
 }
 
-// MARK: UIResponder Methods
+// MARK: - UIResponder Methods
 extension CoolViewController
 {
     // Deselects the currently selected cell when the user taps anywhere
     // on the cool view's background.
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         if let touch: UITouch = touches.first as? UITouch
         {
@@ -120,8 +120,8 @@ extension CoolViewController
         }
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) { }
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) { }
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) { }
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) { }
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) { }
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) { }
 }
 

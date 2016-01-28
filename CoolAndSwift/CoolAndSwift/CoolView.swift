@@ -62,7 +62,7 @@ extension CoolView
 {
     func indexOfCell(cell: CoolViewCell) -> Int?
     {
-        return find(cells, cell)
+        return cells.indexOf(cell)
     }
     
     func indexOfSelectedCell() -> Int?
@@ -101,8 +101,8 @@ extension CoolView
     /// `coolView(didDeselectCellAtIndex:)`
     ///     Sent immediately after deselecting a cell
     ///
-    /// :param: cell The cell to select (or deselect)
-    func handleSelection(#cell: CoolViewCell)
+    /// - parameter cell: The cell to select (or deselect)
+    func handleSelection(cell cell: CoolViewCell)
     {
         deselectAllCells()
         
@@ -122,7 +122,7 @@ extension CoolView
 // MARK: UIResponder Event Phase Methods
 extension CoolView
 {
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent)
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
         if let touch: UITouch = touches.first as? UITouch,
             let cell: CoolViewCell = touch.view as? CoolViewCell
@@ -132,13 +132,13 @@ extension CoolView
         super.touchesBegan(touches, withEvent: event)
     }
     
-    override func touchesMoved(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesMoved(touches, withEvent: event)
     }
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
     }
-    override func touchesCancelled(touches: Set<NSObject>!, withEvent event: UIEvent!) {
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         super.touchesCancelled(touches, withEvent: event)
     }
 }

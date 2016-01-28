@@ -1,6 +1,6 @@
 extension Array
 {
-    func perform(closure: (T) -> ())
+    func perform(closure: (Element) -> ())
     {
         for currElement in self {
             closure(currElement)
