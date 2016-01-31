@@ -35,7 +35,7 @@ class CoolViewCellController: UIViewController, UIPickerViewDataSource, UIPicker
             if let color = colorAtIndex(pickerView.selectedRowInComponent(0)) {
                 cell.backgroundColor = color
             }
-            cell.text = textField.text
+            cell.text = textField.text ?? ""
         }
     }
 }
@@ -58,7 +58,7 @@ extension CoolViewCellController
 // MARK: - UIPickerViewDelegate
 extension CoolViewCellController
 {
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String!
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         return colorTitles[row]
     }

@@ -110,7 +110,7 @@ extension CoolViewController
     // on the cool view's background.
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if let touch: UITouch = touches.first as? UITouch
+        if let touch: UITouch = touches.first
         {
             if !(touch.view is CoolViewCell) {
                 if let cell = coolView.selectedCell {

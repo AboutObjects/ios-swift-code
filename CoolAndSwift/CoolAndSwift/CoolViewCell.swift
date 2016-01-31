@@ -28,7 +28,7 @@ class CoolViewCell: UIView
         didSet { setNeedsDisplay(); sizeToFit() }
     }
     
-    var textAttributes: [NSObject: AnyObject] = [
+    var textAttributes: [String: AnyObject] = [
         NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
         NSForegroundColorAttributeName: UIColor.whiteColor()
     ]
@@ -103,11 +103,11 @@ extension CoolViewCell
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if let touch = touches.first as? UITouch {
+        if  let touch = touches.first {
             let currLocation = touch.locationInView(self)
             let prevLocation = touch.previousLocationInView(self)
             
-            frame = frame.rectByOffsetting(
+            frame = frame.offsetBy(
                 dx: currLocation.x - prevLocation.x,
                 dy: currLocation.y - prevLocation.y)
         }

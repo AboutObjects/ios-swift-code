@@ -85,8 +85,6 @@ extension CoolView
         }
     }
     
-    // TODO: Should delegate notifications be sent by the `selected` property?
-    
     /// If `cell` is already selected, deselects it, otherwise, selects it.
     /// Selection is mutually exclusive; `CoolView` doesn't currently support
     /// multiple selection.
@@ -124,7 +122,7 @@ extension CoolView
 {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if let touch: UITouch = touches.first as? UITouch,
+        if  let touch: UITouch = touches.first,
             let cell: CoolViewCell = touch.view as? CoolViewCell
         {
             handleSelection(cell: cell)
