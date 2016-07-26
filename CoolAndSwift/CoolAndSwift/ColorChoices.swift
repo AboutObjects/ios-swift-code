@@ -3,37 +3,31 @@
 //
 import UIKit
 
-let colorChoices = [
-    "Blue":   UIColor.blueColor(),
-    "Brown":  UIColor.brownColor(),
-    "Gray":   UIColor.grayColor(),
-    "Green":  UIColor.greenColor(),
-    "Orange": UIColor.orangeColor(),
-    "Purple": UIColor.purpleColor()
-]
-
-let colorTitles = colorChoices.keys.sort()
-
-func indexOfTitle(title: String) -> Int?
+extension UIColor
 {
-    return colorTitles.indexOf(title)
-}
-
-func colorAtIndex(index: Int) -> UIColor?
-{
-    assert(index > -1 && index < colorChoices.count, "Invalid index: \(index)")
+    @nonobjc static let cellColors: [String: UIColor]  = [
+        "Blue":   UIColor.blueColor(),
+        "Brown":  UIColor.brownColor(),
+        "Gray":   UIColor.grayColor(),
+        "Green":  UIColor.greenColor(),
+        "Orange": UIColor.orangeColor(),
+        "Purple": UIColor.purpleColor()
+    ]
     
-    let title = colorTitles[index]
-    return colorChoices[title]
-}
-
-func indexOfColor(color: UIColor) -> Int?
-{
-    for (key, value) in colorChoices {
-        if value == color {
-            return colorTitles.indexOf(key)
-        }
+    @nonobjc static var cellColorTitles: [String] {
+        return UIColor.cellColors.keys.sort()
     }
-    return nil
+    
+    class func cellColor(atIndex index: Int) -> UIColor? {
+        assert(index > -1 && index < UIColor.cellColors.count, "Invalid index: \(index)")
+        let title = UIColor.cellColorTitles[index]
+        return UIColor.cellColors[title]
+    }
+    
+    class func indexOfCellColor(cellColor: UIColor) -> Int? {
+        for (key, value) in UIColor.cellColors {
+            if value == cellColor { return UIColor.cellColorTitles.indexOf(key) }
+        }
+        return nil
+    }
 }
-

@@ -49,14 +49,6 @@ class CoolView: UIView
     }
 }
 
-extension CoolView
-{
-    override func prepareForInterfaceBuilder()
-    {
-        super.prepareForInterfaceBuilder()
-    }
-}
-
 // MARK: Handling Selection
 extension CoolView
 {
@@ -122,9 +114,7 @@ extension CoolView
 {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if  let touch: UITouch = touches.first,
-            let cell: CoolViewCell = touch.view as? CoolViewCell
-        {
+        if  let touch: UITouch = touches.first, cell = touch.view as? CoolViewCell {
             handleSelection(cell: cell)
         }
         super.touchesBegan(touches, withEvent: event)

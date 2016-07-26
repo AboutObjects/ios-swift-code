@@ -11,10 +11,9 @@ extension CoolViewCell
     /// Adds a double-tap gesture recognizer that triggers calls to `performAnimation(_:)`
     func configureGestureRecognizers()
     {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("performAnimation:"))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(performAnimation(_:)))
         tapRecognizer.numberOfTapsRequired = 2
         tapRecognizer.delaysTouchesEnded = false
-        
         self.addGestureRecognizer(tapRecognizer)
     }
 }
@@ -29,14 +28,14 @@ extension CoolViewCell
             UIView.setAnimationRepeatAutoreverses(true)
         }
         
-        // animateSpringyBounce(1.0, size: AnimatedMoveSize)
+//         animateSpringyBounce(1.0, size: BounceSize)
     }
     
-    private func animateBounce(duration: NSTimeInterval, size: CGSize, configuration: () -> Void)
+    private func animateBounce(duration: NSTimeInterval, size: CGSize, configure: () -> Void)
     {
         UIView.animateWithDuration(duration,
             animations: {
-                configuration()
+                configure()
                 let translation = CGAffineTransformMakeTranslation(size.width, size.height)
                 self.transform = CGAffineTransformRotate(translation, CGFloat(M_PI_2))
             },

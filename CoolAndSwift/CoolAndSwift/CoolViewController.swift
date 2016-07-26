@@ -15,11 +15,11 @@ class CoolViewController: UIViewController, UITextFieldDelegate, CoolViewDelegat
         // we have to do this programmatically for now.
         coolView.delegate = self
         
-        coolView.addCell("Hello World", color: UIColor.purpleColor(),
+        coolView.addCell(NSLocalizedString("Hello World!", comment:""), color: UIColor.purpleColor(),
             origin: CGPoint(x: 20, y: 100))
-        coolView.addCell("The race is to the Swift?!", color: UIColor.orangeColor(),
+        coolView.addCell(NSLocalizedString("Have a nice day!", comment:""), color: UIColor.orangeColor(),
             origin: CGPoint(x: 60, y: 160))
-        coolView.addCell("New, Improved!", color: UIColor.brownColor(),
+        coolView.addCell(NSLocalizedString("💥😎🎉", comment:""), color: UIColor.brownColor(),
             origin: CGPoint(x: 80, y: 220))
         
         coolView.backgroundColor = UIColor(white: 1.0, alpha: 0.75)
@@ -39,15 +39,12 @@ extension CoolViewController
     {
         if let selectedCell = coolView.selectedCell
         {
-            let cancel = UIAlertAction(title: "Cancel", style: .Cancel) {
-                _ in
-            }
-            let delete = UIAlertAction(title: "Okay", style: .Destructive) {
+            let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment:""), style: .Cancel) { _ in }
+            let delete = UIAlertAction(title: NSLocalizedString("Okay", comment:""), style: .Destructive) {
                 _ in self.coolView.removeCell(selectedCell)
             }
             
-            let alert = UIAlertController(title: "Delete", message: nil, // "For realz?",
-                preferredStyle: .Alert)
+            let alert = UIAlertController(title: NSLocalizedString("Delete", comment:""), message: nil, preferredStyle: .Alert)
             alert.addAction(delete)
             alert.addAction(cancel)
             
@@ -85,8 +82,7 @@ extension CoolViewController
 // MARK: - UITextFieldDelegate Protocol Methods
 extension CoolViewController
 {
-    func textFieldShouldReturn(textField: UITextField) -> Bool
-    {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
@@ -110,13 +106,8 @@ extension CoolViewController
     // on the cool view's background.
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if let touch: UITouch = touches.first
-        {
-            if !(touch.view is CoolViewCell) {
-                if let cell = coolView.selectedCell {
-                    coolView.handleSelection(cell: cell)
-                }
-            }
+        if let touch: UITouch = touches.first where !(touch.view is CoolViewCell), let cell = coolView.selectedCell {
+            coolView.handleSelection(cell: cell)
         }
     }
     

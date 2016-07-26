@@ -3,89 +3,74 @@
 //
 import UIKit
 
-// MARK: - OpacityLevel Enum
-enum OpacityLevel: CGFloat {
-    case Normal = 1.0
-    case Highlighted = 0.5
-    func alpha() -> CGFloat {
-        return rawValue
-    }
+struct Opacity {
+    static let normal: CGFloat = 1.0
+    static let highlighted: CGFloat = 0.5
 }
 
-// MARK: - Padding Struct
-struct TextPadding {
-    static let Left: CGFloat = 12
-    static let Top: CGFloat = 8
-    static let Right: CGFloat = 12
-    static let Bottom: CGFloat = 10
+struct TextInset {
+    static let left: CGFloat = 12
+    static let top: CGFloat = 8
+    static let right: CGFloat = 12
+    static let bottom: CGFloat = 6
+    static let width = left + right
+    static let height = right + bottom
+    static let origin = CGPoint(x: left, y: top)
 }
 
-// MARK: - CoolViewCell Class
+let textAttributes: [String: AnyObject] = [
+    NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
+    NSForegroundColorAttributeName: UIColor.whiteColor()
+]
+
+
+// MARK: - CoolViewCell
 class CoolViewCell: UIView
 {
     // MARK: Properties
-    var text: String = "Default Text" {
+    var text: String? = "Default Text" {
         didSet { setNeedsDisplay(); sizeToFit() }
     }
     
-    var textAttributes: [String: AnyObject] = [
-        NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0),
-        NSForegroundColorAttributeName: UIColor.whiteColor()
-    ]
-    
     var highlighted: Bool = false {
-        willSet {
-            alpha = (newValue ?
-                OpacityLevel.Highlighted.alpha() :
-                OpacityLevel.Normal.alpha())
-        }
+        willSet { alpha = (newValue ? Opacity.highlighted : Opacity.normal) }
     }
     
     var selected: Bool = false {
-        willSet {
-            self.highlighted = newValue
-        }
+        willSet { self.highlighted = newValue }
     }
 
     // MARK: Initializers
-    override init(frame: CGRect)
-    {
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.configure()
+        configure()
     }
     
-    required init?(coder aDecoder: NSCoder)
-    {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.configure()
+        configure()
     }
     
-    convenience init(text: String, color: UIColor = UIColor.blueColor())
-    {
-        // NOTE: Important to use `self` rather than `super` here.
+    convenience init(text: String, color: UIColor = UIColor.blueColor()) {
         self.init(frame: CGRectZero)
-        
         self.backgroundColor = color
         self.text = text
         self.sizeToFit()
     }
 }
 
-// MARK: - UIView and CALayer Configuration
+// MARK: - Configuring Instances
 extension CoolViewCell
 {
-    private func configure()
-    {
+    private func configure() {
         self.configureLayer()
         self.configureGestureRecognizers()
     }
     
-    private func configureLayer()
-    {
+    private func configureLayer() {
         layer.borderWidth = 3
         layer.borderColor = UIColor.whiteColor().CGColor
         layer.cornerRadius = 12
-        
         layer.masksToBounds = true
     }
 }
@@ -103,44 +88,37 @@ extension CoolViewCell
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-        if  let touch = touches.first {
-            let currLocation = touch.locationInView(self)
-            let prevLocation = touch.previousLocationInView(self)
-            
-            frame = frame.offsetBy(
-                dx: currLocation.x - prevLocation.x,
-                dy: currLocation.y - prevLocation.y)
-        }
+        guard let touch = touches.first else { return }
+        let currLocation = touch.locationInView(self)
+        let prevLocation = touch.previousLocationInView(self)
+        center.x += currLocation.x - prevLocation.x
+        center.y += currLocation.y - prevLocation.y
         
         super.touchesMoved(touches, withEvent: event)
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?)
-    {
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesEnded(touches, withEvent: event)
     }
     
-    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?)
-    {
+    override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
         super.touchesCancelled(touches, withEvent: event)
     }
 }
 
-// MARK: - UIView Drawing and Resizing
+
+// MARK: - Drawing and Resizing
 extension CoolViewCell
 {
-    override func sizeThatFits(size: CGSize) -> CGSize
-    {
+    override func sizeThatFits(size: CGSize) -> CGSize {
+        guard let text = text else { return CGSizeZero }
         var newSize = text.sizeWithAttributes(textAttributes)
-        newSize.width += TextPadding.Left + TextPadding.Right
-        newSize.height += TextPadding.Top + TextPadding.Bottom
-        
+        newSize.width += TextInset.width
+        newSize.height += TextInset.height
         return newSize
     }
     
-    override func drawRect(rect: CGRect)
-    {
-        let origin = CGPoint(x: TextPadding.Left, y: TextPadding.Top)
-        text.drawAtPoint(origin, withAttributes: textAttributes)
+    override func drawRect(rect: CGRect) {
+        text?.drawAtPoint(TextInset.origin, withAttributes: textAttributes)
     }
 }

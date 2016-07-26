@@ -16,8 +16,8 @@ class CoolAndSwiftTests: XCTestCase
     
     func testColorAtIndex()
     {
-        let color = colorAtIndex(0)
-        let expectedColor = colorChoices[colorTitles[0]]
+        let color = UIColor.cellColor(atIndex:0)
+        let expectedColor = UIColor.cellColors[UIColor.cellColorTitles[0]] // colorChoices[colorTitles[0]]
         XCTAssertEqual(color!, expectedColor!, "")
     }
 }
